@@ -7,6 +7,10 @@ init:
 	 then echo "tinyfpga_examples in files";\
 	 else git clone https://github.com/lawrie/tinyfpga_examples/ files/tinyfpga_examples;\
 	fi
+	@if [ -d files/TinyFPGA-BX ];\
+	 then echo "TinyFPGA-BX in files";\
+	 else git clone https://github.com/tinyfpga/TinyFPGA-BX files/TinyFPGA-BX;\
+	fi
 
 build:
 	docker build -t tinyfpga:1.0 -f Dockerfile .

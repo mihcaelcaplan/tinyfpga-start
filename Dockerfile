@@ -37,6 +37,48 @@ RUN ./configure
 RUN make
 RUN make install
 
+#grab yosys
+RUN git clone https://github.com/cliffordwolf/yosys.git /usr/local/src/yosys
+WORKDIR /usr/local/src/yosys
+
+#get dependencies for yosys
+RUN apt-get install -y libreadline-dev libffi-dev
+
+#build yosys
+RUN make config-gcc
+RUN make
+RUN apt-get install -y gawk
+# RUN make test
+RUN make install
+
+#prereqs 
+RUN sudo apt-get install -y build-essential clang bison flex libreadline-dev \
+                     gawk tcl-dev libffi-dev git mercurial graphviz   \
+                     xdot pkg-config python python3 libftdi-dev \
+                     qt5-default python3-dev libboost-all-dev libeigen3-dev curl libssl-dev
+
+#cmake must be version 3.13 to be compatible with a policy setting in nextpnr
+RUN curl -L https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0.tar.gz --output /usr/local/src/cmake-3.21.0.tar.gz
+WORKDIR /usr/local/src
+RUN tar -xvzf cmake-3.21.0.tar.gz
+WORKDIR /usr/local/src/cmake-3.21.0
+RUN ./bootstrap
+RUN make -j$(nproc)
+RUN make install
+
+
+#icestorm (includes icepack, icebox, iceprog, icetime, chip databases)
+RUN git clone https://github.com/YosysHQ/icestorm.git /usr/local/src/icestorm
+WORKDIR /usr/local/src/icestorm
+RUN make -j$(nproc)
+RUN sudo make install
+
+# nextpnr (use instead of arachne)
+RUN git clone https://github.com/YosysHQ/nextpnr /usr/local/src/nextpnr
+WORKDIR /usr/local/src/nextpnr
+RUN cmake -DARCH=ice40 -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_GUI=ON .
+RUN make -j$(nproc)
+RUN make install
 
 # deal with user stuff
 RUN useradd --create-home --shell /bin/bash fpgauser
@@ -50,18 +92,18 @@ USER fpgauser
 WORKDIR /home/fpgauser
 
 # set locale for Click (part of apio)
-ENV LANG C.UTF-8  
-ENV LC_ALL C.UTF-8     
+# ENV LANG C.UTF-8  
+# ENV LC_ALL C.UTF-8     
 
-# install stuff from apio as user
-RUN apio install system
-RUN apio install scons 
-RUN apio install icestorm 
-RUN apio install iverilog
-RUN apio drivers --serial-enable
+# # install stuff from apio as user
+# RUN apio install system
+# RUN apio install scons 
+# RUN apio install ` 
+# RUN apio install iverilog
+# RUN apio drivers --serial-enable
 
 # add stuff from git
-RUN git clone https://github.com/lawrie/tinyfpga_examples
+# RUN git clone https://github.com/lawrie/tinyfpga_examples
 
 ENV DISPLAY=localhost:0
 # have this late in the file because it will changes

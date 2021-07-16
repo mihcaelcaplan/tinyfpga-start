@@ -1,0 +1,7 @@
+.DS_Store
+.bash_history
+
+files/*
+!files/blinky
+!files/i2c
+!files/tinyfpga_examples

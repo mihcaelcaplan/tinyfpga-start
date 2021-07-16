@@ -1,0 +1,87 @@
+#! /usr/local/bin/vvp -v
+:ivl_version "12.0 (devel)" "(s20150603-955-gd6e01d0c)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+S_0x557f7da879c0 .scope module, "tb" "tb" 2 3;
+ .timescale -9 -12;
+v0x557f7dad1ff0_0 .var "clk", 0 0;
+v0x557f7dad2090_0 .net "led", 0 0, L_0x557f7dae23c0;  1 drivers
+L_0x7f7682e5d018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x557f7dad2130_0 .net "usbpu", 0 0, L_0x7f7682e5d018;  1 drivers
+S_0x557f7dabfc80 .scope module, "t" "top" 2 27, 3 2 0, S_0x557f7da879c0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "CLK";
+    .port_info 1 /OUTPUT 1 "LED";
+    .port_info 2 /OUTPUT 1 "USBPU";
+v0x557f7daacac0_0 .net "CLK", 0 0, v0x557f7dad1ff0_0;  1 drivers
+v0x557f7dad1b20_0 .net "LED", 0 0, L_0x557f7dae23c0;  alias, 1 drivers
+v0x557f7dad1be0_0 .net "USBPU", 0 0, L_0x7f7682e5d018;  alias, 1 drivers
+v0x557f7dad1c80_0 .net *"_ivl_5", 4 0, L_0x557f7dae22c0;  1 drivers
+v0x557f7dad1d60_0 .var "blink_counter", 25 0;
+L_0x7f7682e5d060 .functor BUFT 1, C4<00000101010001110111011100010101>, C4<0>, C4<0>, C4<0>;
+v0x557f7dad1e90_0 .net "blink_pattern", 31 0, L_0x7f7682e5d060;  1 drivers
+E_0x557f7dabe010 .event posedge, v0x557f7daacac0_0;
+L_0x557f7dae22c0 .part v0x557f7dad1d60_0, 21, 5;
+L_0x557f7dae23c0 .part/v L_0x7f7682e5d060, L_0x557f7dae22c0, 1;
+    .scope S_0x557f7dabfc80;
+T_0 ;
+    %pushi/vec4 0, 0, 26;
+    %store/vec4 v0x557f7dad1d60_0, 0, 26;
+    %end;
+    .thread T_0;
+    .scope S_0x557f7dabfc80;
+T_1 ;
+    %wait E_0x557f7dabe010;
+    %load/vec4 v0x557f7dad1d60_0;
+    %addi 1, 0, 26;
+    %assign/vec4 v0x557f7dad1d60_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x557f7da879c0;
+T_2 ;
+    %vpi_call 2 5 "$dumpfile", "top_tb.fst" {0 0 0};
+    %vpi_call 2 6 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x557f7dabfc80 {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_0x557f7da879c0;
+T_3 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x557f7dad1ff0_0, 0, 1;
+    %end;
+    .thread T_3;
+    .scope S_0x557f7da879c0;
+T_4 ;
+    %delay 31000, 0;
+    %load/vec4 v0x557f7dad1ff0_0;
+    %nor/r;
+    %store/vec4 v0x557f7dad1ff0_0, 0, 1;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_0x557f7da879c0;
+T_5 ;
+    %pushi/vec4 25, 0, 32;
+T_5.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_5.1, 5;
+    %jmp/1 T_5.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %wait E_0x557f7dabe010;
+    %jmp T_5.0;
+T_5.1 ;
+    %pop/vec4 1;
+    %vpi_call 2 24 "$finish" {0 0 0};
+    %end;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "top_tb.v";
+    "top.v";

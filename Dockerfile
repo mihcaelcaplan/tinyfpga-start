@@ -1,15 +1,15 @@
 FROM ubuntu:18.04
 ####### AS ROOT #######
-RUN apt-get update && apt-get install -y python3-pip sudo
+RUN apt-get update && apt-get install -y python3-pip sudo git
 
 # download and install atom for apio
-RUN curl -s https://api.github.com/repos/atom/atom/releases/latest \
-| grep "atom-amd64.*deb" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi -
-COPY atom-amd64.deb /usr/local/src/
-RUN apt install -y ./usr/local/src/atom-amd64.deb
+# RUN curl -s https://api.github.com/repos/atom/atom/releases/latest \
+# | grep "atom-amd64.*deb" \
+# | cut -d : -f 2,3 \
+# | tr -d \" \
+# | wget -qi -
+# COPY atom-amd64.deb /usr/local/src/
+# RUN apt install -y ./usr/local/src/atom-amd64.deb
 
 # install apio and tinyprog
 RUN pip3 install apio==0.4.0b5 tinyprog

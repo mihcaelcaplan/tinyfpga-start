@@ -80,6 +80,22 @@ RUN cmake -DARCH=ice40 -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_GUI=ON .
 RUN make -j$(nproc)
 RUN make install
 
+# install spinalhdl (from https://spinalhdl.github.io/SpinalDoc-RTD/SpinalHDL/Getting%20Started/getting_started.html#the-sbt-way)
+#install java, scala 
+RUN apt-get -y install openjdk-8-jdk
+RUN apt-get -y install scala
+# install curl tp get sbt
+RUN apt-get -y install curl
+RUN echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
+RUN echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/sources.list.d/sbt_old.list
+RUN curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
+RUN apt-get update
+RUN apt-get install sbt
+
+
+
+############################################################################################
+
 # deal with user stuff
 RUN useradd --create-home --shell /bin/bash fpgauser
 RUN echo 'fpgauser:fpgauser' | chpasswd

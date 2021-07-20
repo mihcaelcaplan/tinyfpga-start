@@ -19,7 +19,7 @@ interactive: init
 	xhost +$(shell ipconfig getifaddr en0)
 	docker run -e DISPLAY=$(shell ipconfig getifaddr en0):0 \
 				--privileged \
-				-v /dev/tty.usbmodem14101:/dev/tty.usbmodem14101 \
+				-v /dev/ttyACM0:/dev/ttyACM0 \
 				--mount type=bind,source=$(shell pwd)/files,target=/home/fpgauser \
 				--entrypoint /usr/local/bin/default.sh \
 				-it tinyfpga:1.0
@@ -28,7 +28,7 @@ example: init
 	xhost +$(shell ipconfig getifaddr en0)
 	docker run -e DISPLAY=$(shell ipconfig getifaddr en0):0 \
 				--privileged \
-				-v /dev/tty.usbmodem1432301:/dev/tty.usbmodem1432301 \
+				-v /dev/ttyACM0:/dev/ttyACM0 \
 				--mount type=bind,source=$(shell pwd)/files,target=/home/fpgauser/ \
 				--entrypoint /usr/local/bin/build_example.sh \
 				-it tinyfpga:1.0

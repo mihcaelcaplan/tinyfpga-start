@@ -7,3 +7,6 @@ files/*
 !files/scripted_flow1       
 !files/SpinalTemplateSbt
 !files/SimpleSigmaDeltaADC
+
+*.vvp
+*.lxt2

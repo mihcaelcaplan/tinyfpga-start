@@ -1,4 +1,4 @@
-//   ==================================================================
+_//   ==================================================================
 //   >>>>>>>>>>>>>>>>>>>>>>> COPYRIGHT NOTICE <<<<<<<<<<<<<<<<<<<<<<<<<
 //   ------------------------------------------------------------------
 //   Copyright (c) 2014 by Lattice Semiconductor Corporation
@@ -99,6 +99,9 @@
     end
 
 initial begin
+// add dumpfile 
+$dumpfile("adc_test.vcd");
+$dumpvars(0, ADC_tf);
 $timeformat(-9,0," ns",10);
 $display ("Asserting Reset");
 #33 rstn = 1;

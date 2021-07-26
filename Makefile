@@ -35,8 +35,6 @@ interactive: init
 ifeq ($(UNAME), Darwin)
 	xhost +$(shell ipconfig getifaddr en0)
 	docker run -e DISPLAY=$(shell ipconfig getifaddr en0):0 \
-				--privileged \
-				-v /dev/ttyACM0:/dev/ttyACM0 \
 				--mount type=bind,source=$(shell pwd)/files,target=/home/fpgauser \
 				--entrypoint /usr/local/bin/default.sh \
 				-it tinyfpga:1.0 
@@ -45,10 +43,11 @@ ifeq ($(UNAME), Linux)
 	docker run -e DISPLAY=$(DISPLAY) \
 				-v /tmp/.X11-unix:/tmp/.X11-unix \
 				--privileged \
-				-v /dev/ttyACM0:/dev/ttyACM0 \
+				-v /dev/serial:/dev/serial \
 				--mount type=bind,source=$(shell pwd)/files,target=/home/fpgauser \
 				--entrypoint /usr/local/bin/default.sh \
 				-it tinyfpga:1.0 
+	
 endif
 
 # interactive: init
@@ -64,10 +63,11 @@ example: init
 	xhost +$(shell ipconfig getifaddr en0)
 	docker run -e DISPLAY=$(shell ipconfig getifaddr en0):0 \
 				--privileged \
-				-v /dev/ttyACM0:/dev/ttyACM0 \
+				-v /dev/serial:/dev/serial \
 				--mount type=bind,source=$(shell pwd)/files,target=/home/fpgauser/ \
 				--entrypoint /usr/local/bin/build_example.sh \
 				-it tinyfpga:1.0
+		
 
 attach:
 	docker exec -it $(shell docker ps -lq) bash

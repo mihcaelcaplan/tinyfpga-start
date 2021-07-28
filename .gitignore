@@ -14,3 +14,4 @@ files/SimpleSigmaDeltaADC/*.json
 *.lxt2
 *.bin
 *.rpt
+*.json

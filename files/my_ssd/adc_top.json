@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.9+4081 (git sha1 414154dd, gcc 7.5.0-3ubuntu1~18.04 -fPIC -Os)",
+  "creator": "Yosys 0.9+4081 (git sha1 9af88951, gcc 7.5.0-3ubuntu1~18.04 -fPIC -Os)",
   "modules": {
     "ICESTORM_LC": {
       "attributes": {
@@ -9663,7 +9663,7 @@
       "attributes": {
         "dynports": "00000000000000000000000000000001",
         "top": "00000000000000000000000000000001",
-        "src": "adc_ice40_top.v:3.1-67.10"
+        "src": "adc_ice40_top.v:3.1-55.10"
       },
       "parameter_default_values": {
         "ACCUM_BITS": "00000000000000000000000000001010",
@@ -9705,7 +9705,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:115.1-118.4|adc_top.v:119.1-126.3|/usr/local/bin/../share/yosys/ice40/ff_map.v:2.51-2.90"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:115.1-118.4|adc_top.v:119.1-126.3|/usr/local/bin/../share/yosys/ice40/ff_map.v:2.51-2.90"
           },
           "port_directions": {
             "C": "input",
@@ -9766,21 +9766,21 @@
           "hide_name": 0,
           "bits": [ 3 ],
           "attributes": {
-            "src": "adc_ice40_top.v:33.6-33.16"
+            "src": "adc_ice40_top.v:22.6-22.16"
           }
         },
         "analog_out": {
           "hide_name": 0,
           "bits": [ 4 ],
           "attributes": {
-            "src": "adc_ice40_top.v:36.6-36.16"
+            "src": "adc_ice40_top.v:25.6-25.16"
           }
         },
         "clk": {
           "hide_name": 0,
           "bits": [ 2 ],
           "attributes": {
-            "src": "adc_ice40_top.v:31.6-31.9"
+            "src": "adc_ice40_top.v:20.6-20.9"
           }
         },
         "my_ssd.SSD_ADC.accum_rdy": {
@@ -9788,7 +9788,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC accum_rdy",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:102.11-102.20|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:102.11-102.20|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.analog_cmp": {
@@ -9796,7 +9796,7 @@
           "bits": [ 3 ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC analog_cmp",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:84.7-84.17|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:84.7-84.17|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.analog_out": {
@@ -9804,7 +9804,7 @@
           "bits": [ 4 ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC analog_out",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:87.8-87.18|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:87.8-87.18|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.clk": {
@@ -9812,7 +9812,7 @@
           "bits": [ 2 ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave clk",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:85.7-85.10|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:85.7-85.10|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.count": {
@@ -9820,7 +9820,7 @@
           "bits": [ "0", "0", "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave count",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:101.41-101.46|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:101.41-101.46|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.data_out_valid": {
@@ -9828,7 +9828,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave data_out_valid",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:92.8-92.22|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:92.8-92.22|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.result_valid": {
@@ -9836,7 +9836,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave result_valid",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:105.5-105.17|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:105.5-105.17|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.rstn": {
@@ -9844,7 +9844,7 @@
           "bits": [ "x" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave rstn",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:86.7-86.11|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:86.7-86.11|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.sample": {
@@ -9852,7 +9852,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave sample",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:87.7-87.13|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:87.7-87.13|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.sample_d1": {
@@ -9860,7 +9860,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave sample_d1",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:104.5-104.14|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:104.5-104.14|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.box_ave.sample_d2": {
@@ -9868,7 +9868,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC box_ave sample_d2",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:104.16-104.25|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:163.1-170.2|box_ave.v:104.16-104.25|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.clk": {
@@ -9876,7 +9876,7 @@
           "bits": [ 2 ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC clk",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:82.7-82.10|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:82.7-82.10|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.counter": {
@@ -9884,7 +9884,7 @@
           "bits": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC counter",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:100.26-100.33|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:100.26-100.33|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.delta": {
@@ -9892,7 +9892,7 @@
           "bits": [ 4 ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC delta",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:97.29-97.34|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:97.29-97.34|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.rollover": {
@@ -9900,7 +9900,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC rollover",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:101.11-101.19|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:101.11-101.19|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.rstn": {
@@ -9908,7 +9908,7 @@
           "bits": [ "x" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC rstn",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:83.7-83.11|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:83.7-83.11|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.SSD_ADC.sample_rdy": {
@@ -9916,7 +9916,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd SSD_ADC sample_rdy",
-            "src": "adc_ice40_top.v:56.1-63.3|sigmadelta_adc.v:88.9-88.19|adc_top.v:119.1-126.3"
+            "src": "adc_ice40_top.v:45.1-52.3|sigmadelta_adc.v:88.9-88.19|adc_top.v:119.1-126.3"
           }
         },
         "my_ssd.analog_cmp": {
@@ -9924,7 +9924,7 @@
           "bits": [ 3 ],
           "attributes": {
             "hdlname": "my_ssd analog_cmp",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:85.7-85.17"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:85.7-85.17"
           }
         },
         "my_ssd.analog_out": {
@@ -9932,7 +9932,7 @@
           "bits": [ 4 ],
           "attributes": {
             "hdlname": "my_ssd analog_out",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:88.8-88.18"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:88.8-88.18"
           }
         },
         "my_ssd.analog_out_i": {
@@ -9940,7 +9940,7 @@
           "bits": [ 4 ],
           "attributes": {
             "hdlname": "my_ssd analog_out_i",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:99.12-99.24"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:99.12-99.24"
           }
         },
         "my_ssd.clk": {
@@ -9948,7 +9948,7 @@
           "bits": [ 2 ],
           "attributes": {
             "hdlname": "my_ssd clk",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:98.12-98.15"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:98.12-98.15"
           }
         },
         "my_ssd.clk_in": {
@@ -9956,7 +9956,7 @@
           "bits": [ 2 ],
           "attributes": {
             "hdlname": "my_ssd clk_in",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:83.7-83.13"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:83.7-83.13"
           }
         },
         "my_ssd.rstn": {
@@ -9964,7 +9964,7 @@
           "bits": [ "x" ],
           "attributes": {
             "hdlname": "my_ssd rstn",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:84.7-84.11"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:84.7-84.11"
           }
         },
         "my_ssd.sample_rdy": {
@@ -9972,7 +9972,7 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd sample_rdy",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:89.9-89.19"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:89.9-89.19"
           }
         },
         "my_ssd.sample_rdy_i": {
@@ -9980,28 +9980,28 @@
           "bits": [ "0" ],
           "attributes": {
             "hdlname": "my_ssd sample_rdy_i",
-            "src": "adc_ice40_top.v:56.1-63.3|adc_top.v:100.12-100.24"
+            "src": "adc_ice40_top.v:45.1-52.3|adc_top.v:100.12-100.24"
           }
         },
         "rstn": {
           "hide_name": 0,
           "bits": [ "x" ],
           "attributes": {
-            "src": "adc_ice40_top.v:32.6-32.10"
+            "src": "adc_ice40_top.v:21.6-21.10"
           }
         },
         "sample_rdy": {
           "hide_name": 0,
           "bits": [ "0" ],
           "attributes": {
-            "src": "adc_ice40_top.v:37.6-37.16"
+            "src": "adc_ice40_top.v:26.6-26.16"
           }
         },
         "serial_out": {
           "hide_name": 0,
           "bits": [ "x" ],
           "attributes": {
-            "src": "adc_ice40_top.v:38.6-38.16"
+            "src": "adc_ice40_top.v:27.6-27.16"
           }
         }
       }

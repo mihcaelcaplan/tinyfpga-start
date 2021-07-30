@@ -51,7 +51,7 @@
 
 // Define Module for Test Fixture
 
-	module ADC_tf();
+	module ADC_ice40_tf();
 
 // Inputs to UUT
     reg clk;
@@ -60,6 +60,7 @@
 
 // Outputs from UUT
     wire [7:0] digital_out;
+	wire serial_out;
     wire analog_out;
 	wire sample_rdy; 
  	reg [1:0]result;	  
@@ -85,14 +86,15 @@
 
 
 // Instantiate my ice40_top module instead of the UUT, but keep all of the stuff so that things work?
-adc_ice40_top my_adc (
-	 .CLK(clk),                // clk_in,
-     .PIN_1(rstn),              // rstn,
-	 .PIN_12(digital_out),            // serial_out,
-	 .PIN_3(analog_cmp),              // analog_cmp_pin,	
-	 .PIN_5(analog_out),              // analog_out,
-	 .PIN_6(sample_rdy)               // sample_rdy
-);
+adc_ice40_top my_UUT (
+    .clk(clk), 
+    .rstn(rstn), 
+    .serial_out(serial_out), 
+	.digital_out(digital_out),
+    .analog_cmp(analog_cmp), 
+    .analog_out(analog_out),
+	.sample_rdy(sample_rdy)
+    );
 
 
 // Initialize Inputs
@@ -111,8 +113,8 @@ adc_ice40_top my_adc (
 
 initial begin
 // add dumpfile 
-$dumpfile("adc_test.lxt2");
-$dumpvars(0, ADC_tf);
+$dumpfile("adc_test_ice40.lxt2");
+$dumpvars(0, ADC_ice40_tf);
 $timeformat(-9,0," ns",10);
 $display ("Asserting Reset");
 #33 rstn = 1;
@@ -168,6 +170,8 @@ always@ (posedge analog_input[9])
 		analog_value <= analog_value2;
 	end
 
+
+//make sure the difference between the analog sample and digitized sample is under a threshold
 always@(negedge sample_rdy)
 	begin
 	sim_time <= $time;	

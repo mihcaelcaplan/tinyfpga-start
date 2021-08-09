@@ -13,7 +13,8 @@ module adc_ice40_top (
 	input clk,
     input rstn,
 	output serial_out,
-	output [ADC_WIDTH-1:0] digital_out,
+	// input [ADC_WIDTH-1:0] digital_in,
+	// output [ADC_WIDTH-1:0] digital_out,
 	input analog_cmp,	
 	output analog_out,
 	output sample_rdy
@@ -27,22 +28,7 @@ INPUT_TOPOLOGY = 1;         // 0: DIRECT: Analog input directly connected to + i
                             // 1: NETWORK:Analog input connected through R divider to - input of comp.
 
 // assign to internal wires and regs
-wire [ADC_WIDTH-1:0] digital_in;
-// wire rstn_i;
-// wire serial_out_i;
-// wire [ADC_WIDTH-1:0] digital_out_i;
-// wire analog_cmp_i;
-// wire analog_out_i;
-// wire sample_rdy;
-
-// assign clk = CLK;
-// assign rstn = PIN_1;
-// assign analog_cmp = PIN_3;
-
-// assign analog_out = PIN_5;
-// assign sample_rdy = PIN_6;
-// assign serial_out = PIN_1;
-
+wire [ADC_WIDTH-1:0] digital_in_i;
 
 //instantiate ADC_top
 ADC_top #(
@@ -54,14 +40,43 @@ ADC_top #(
 my_ssd(
 	.clk_in(clk),
 	.rstn(rstn),
-	.digital_out(digital_out),
+	.digital_out(digital_in_i),
 	.analog_cmp(analog_cmp),	
 	.analog_out(analog_out),
 	.sample_rdy(sample_rdy)
 	);
 
-// choose what's going on here
+
+reg [6:0] my_counter; //7 bit counter - 3 bits less than the accumulator mean 1/8 the period
+reg my_rollover;
+reg out_clk;
+// reg mycounter; //8 bit counter
+
+// always@(posedge clk) begin
+// 	my_counter <= ~my_counter;
+// end
+
+always @(posedge clk or negedge rstn)
+begin
+	// this a good trick to initialize things before your reset line gets pulled up
+	if( ~rstn ) begin
+		my_counter <= 0;
+		my_rollover <= 0;
+		out_clk <= 0;
+		end
+	else begin
+		my_counter <= my_counter + 1;       // running count
+		my_rollover <= &my_counter;         // assert 'rollover' when counter is all 1's
+		end
+end
+
+always@(posedge my_rollover) begin
+	out_clk <= ~out_clk;
+end
+
+
 
 // output assignments
+// assign digital_out = digital_in_i;
 
 endmodule

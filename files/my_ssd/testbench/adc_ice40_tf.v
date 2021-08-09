@@ -90,6 +90,7 @@ adc_ice40_top my_UUT (
     .clk(clk), 
     .rstn(rstn), 
     .serial_out(serial_out), 
+    // .digital_in(digital_out), 
 	.digital_out(digital_out),
     .analog_cmp(analog_cmp), 
     .analog_out(analog_out),
